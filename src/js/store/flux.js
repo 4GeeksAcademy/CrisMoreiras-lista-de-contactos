@@ -1,29 +1,50 @@
 const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
+
 			demo: [
 				{
-					title: "FIRST",
+					title: "FIRST 02",
 					background: "white",
 					initial: "white"
 				},
 				{
-					title: "SECOND",
+					title: "SECOND 02",
 					background: "white",
 					initial: "white"
 				}
-			]
+			],
+			
+			contactlist: [
+				{
+					full_name: "CLAUDIA 03",
+					email: "whiteEEE"
+				},
+				{
+					full_name: "LORENA 03",
+					email: "whiteAAA"
+				}
+			],
+
 		},
+
 		actions: {
 			// Use getActions to call a function within a fuction
 			exampleFunction: () => {
 				getActions().changeColor(0, "green");
 			},
 			loadSomeData: () => {
-				/**
-					fetch().then().then(data => setStore({ "foo": data.bar }))
-				*/
+
+				setStore({ contactlist: [
+					fetch ("https://playground.4geeks.com/apis/fake/contact/agenda/Agenda Cris 02")
+					.then((response) => response.json())
+					.then((data) => setStore({ contactlist: data }))
+				]
+
+				});
+
 			},
+
 			changeColor: (index, color) => {
 				//get the store
 				const store = getStore();
