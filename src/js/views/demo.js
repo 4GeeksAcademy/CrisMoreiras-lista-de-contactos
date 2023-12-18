@@ -9,9 +9,9 @@ export const Demo = () => {
 	
 	const { store, actions } = useContext(Context);
 
-	//useEffect(() => {
-	//	actions.loadSomeData();
-	//  }, []);
+	useEffect(() => {
+		actions.loadSomeData();
+	  }, []);
 
 	const buttonDeleteContact = (id) => {
 		actions.deleteContact(id);
@@ -39,6 +39,7 @@ export const Demo = () => {
 			<Link to="/">
 				<button className="btn btn-primary">Back home</button>
 			</Link>
+			
 		</div>
 
 		

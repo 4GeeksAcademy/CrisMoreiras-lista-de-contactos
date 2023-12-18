@@ -10,6 +10,7 @@ import "bootstrap/dist/css/bootstrap.css";
 //import your own components
 import Layout from './layout.js'
 
+
 //
 const root = createRoot(document.querySelector("#app"))
 
