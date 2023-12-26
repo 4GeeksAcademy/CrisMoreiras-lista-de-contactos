@@ -9,13 +9,6 @@ export const Demo = () => {
 	
 	const { store, actions } = useContext(Context);
 
-	//useEffect(() => {
-		//actions.loadSomeData();
-	  //}, []);
-
-	//const buttonDeleteContact = (index) => {
-	//	actions.deleteContact(index);
-	//};
 
 	function eliminar (indexToDelete){
 		console.log ("eliminado" + indexToDelete)
@@ -44,17 +37,17 @@ export const Demo = () => {
 			<Link to="/">
 				<button className="btn btn-primary">Back home</button>
 			</Link>
-			<br></br>
+			<br/>
 			<Link to="/formaddcontact">
 				<button className="btn btn-primary">Add New Contact</button>
 			</Link>
+			<br/>
+			<Link to="/contactlist">
+				<button className="btn btn-primary">Contact</button>
+			</Link>
 			
 		</div>
-
 		
-	);
-
-
-	
+	);	
 
 };
