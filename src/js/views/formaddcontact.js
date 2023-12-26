@@ -7,8 +7,6 @@ import "../../styles/demo.css";
 
 export const FormAddContact = () => {
 
-	console.log ("add contact form")
-	
 	const { store, actions } = useContext(Context);
 	const [name, setName] = useState("");
 	const [mail, setMail] = useState("");
@@ -35,6 +33,7 @@ export const FormAddContact = () => {
 		
 	};
 
+	
 		
 	return (
         <>

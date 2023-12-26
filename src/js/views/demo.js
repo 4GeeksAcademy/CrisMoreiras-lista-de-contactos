@@ -9,14 +9,18 @@ export const Demo = () => {
 	
 	const { store, actions } = useContext(Context);
 
-	useEffect(() => {
-		actions.loadSomeData();
-	  }, []);
+	//useEffect(() => {
+		//actions.loadSomeData();
+	  //}, []);
 
-	const buttonDeleteContact = (id) => {
-		actions.deleteContact(id);
-		
-	};
+	//const buttonDeleteContact = (index) => {
+	//	actions.deleteContact(index);
+	//};
+
+	function eliminar (indexToDelete){
+		console.log ("eliminado" + indexToDelete)
+		console.log(store.contactlist.filter ((item, index) => index!= indexToDelete))
+	}
 
 	
 	return (
@@ -30,7 +34,7 @@ export const Demo = () => {
 							>
 							{ contactlist.full_name }
 							{ contactlist.email }
-							<button onClick={()=>buttonDeleteContact(contactlist.id)}>Delete Contact</button>
+							<button onClick={()=>actions.deleteContact(index)}>Delete Contact</button>
 						</li>
 					);
 				})}	

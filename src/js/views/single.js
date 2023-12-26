@@ -17,6 +17,7 @@ export const Single = props => {
 					Back home
 				</span>
 			</Link>
+			
 		</div>
 	);
 };

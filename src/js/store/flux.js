@@ -16,20 +16,20 @@ const getState = ({ getStore, getActions, setStore }) => {
 				}
 			],
 			
-			prueba: [
+			contactlist: [
 				{
 					full_name: "CLAUDIA 03",
 					email: "whiteEEE",
-					id: 12345
+					
 				},
 				{
 					full_name: "LORENA 03",
 					email: "whiteAAA",
-					id: 6789
+					
 				}
 			],
 
-			contactlist: [],
+			contactlist2: [],
 
 		},
 
@@ -43,21 +43,43 @@ const getState = ({ getStore, getActions, setStore }) => {
 					})
 			},
 
-			deleteContact: (id) => {
-				const deleteOptions = {
-					method: "DELETE",
-					headers: { 'Content-Type': 'application/json'  },	
-				};
-				fetch(`https://playground.4geeks.com/apis/fake/contact/${id}`, deleteOptions)
-					.then(response => response.json())
-					.then((data =>{ 
-						fetch(apiUrl)
-							.then((response) => response.json())
-							.then((data) => {
-								setStore({ contactlist: data });
-							})
-					}))
+			//addContact: (newContact) {
+			//	const requestOptions = {
+			//		method: 'POST',
+			//		headers: { 'Content-Type': 'application/json' },
+			//		body: JSON.stringify({
+			//			"full_name": newContact.full_name,
+			//			"email": newContact.email,
+			//			"agenda_slug": "Agenda Cris 02",
+			//			"address":newContact.address,
+			//			"phone":newContact.phone,
+			//		})
+			//	};
+			//	fetch('https://playground.4geeks.com/apis/fake/contact/', requestOptions)
+			//},
+
+			deleteContact: (indexToDelete) => {
+				const store = getStore();
+				console.log ("deleteContact")
+				console.log ("eliminado" + indexToDelete)
+				console.log(store.contactlist.filter ((item, index) => index!= indexToDelete))
+				setStore({contactlist:store.contactlist.filter ((item, index) => index!= indexToDelete)})
 			},
+
+			//deleteContact: (index) => {
+			//	const deleteOptions = {
+			//		method: "DELETE",	
+			//	};
+			//	fetch(`https://playground.4geeks.com/apis/fake/contact/${id}`, deleteOptions)
+			//		.then(response => response.json())
+			//		.then((data =>{ 
+			//			fetch(apiUrl)
+			//				.then((response) => response.json())
+			//				.then((data) => {
+			//					setStore({ contactlist: data });
+			//				})
+			//		}))
+			//},
 
 		},
 
