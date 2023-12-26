@@ -1,47 +1,20 @@
-const apiUrl = ["https://playground.4geeks.com/apis/fake/contact/agenda/Agenda Cris 02"]
+//const apiUrl = ["https://playground.4geeks.com/apis/fake/contact/agenda/Agenda Cris 02"]
 const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
-
-			demo: [
-				{
-					title: "FIRST 02",
-					background: "white",
-					initial: "white"
-				},
-				{
-					title: "SECOND 02",
-					background: "white",
-					initial: "white"
-				}
-			],
-			
-			contactlist: [
-				{
-					full_name: "CLAUDIA 03",
-					email: "whiteEEE",
-					
-				},
-				{
-					full_name: "LORENA 03",
-					email: "whiteAAA",
-					
-				}
-			],
-
-			contactlist2: [],
+	
+			contactlist: [],
 
 		},
 
 		actions: {
 		
 			loadSomeData: () => {
-				fetch (apiUrl)
+				fetch ("https://playground.4geeks.com/apis/fake/contact/agenda/Agenda Cris 02")
 					.then((response) => response.json())
-					.then((data) => {
-						setStore({ contactlist: data });
-					})
-			},
+					.then((data) => setStore ({contactlist: data}))	
+				},
+			
 
 			//addContact: (newContact) {
 			//	const requestOptions = {
@@ -60,33 +33,27 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 			deleteContact: (indexToDelete) => {
 				const store = getStore();
-				console.log ("deleteContact")
-				console.log ("eliminado" + indexToDelete)
-				console.log(store.contactlist.filter ((item, index) => index!= indexToDelete))
-				setStore({contactlist:store.contactlist.filter ((item, index) => index!= indexToDelete)})
+
+					var requestOptions = {
+						method: "DELETE",
+						redirect : "follow"
+					};
+
+					fetch ("https://playground.4geeks.com/apis/fake/contact/" + indexToDelete, requestOptions)
+					.then(response => response.text())
+					.then(result => {
+						
+						fetch ("https://playground.4geeks.com/apis/fake/contact/agenda/Agenda Cris 02")
+						.then((response) => response.json())
+						.then((data) => setStore ({contactlist: data}))
+
+					})
+					.catch (error => console.log("error", error));
 			},
 
-			//deleteContact: (index) => {
-			//	const deleteOptions = {
-			//		method: "DELETE",	
-			//	};
-			//	fetch(`https://playground.4geeks.com/apis/fake/contact/${id}`, deleteOptions)
-			//		.then(response => response.json())
-			//		.then((data =>{ 
-			//			fetch(apiUrl)
-			//				.then((response) => response.json())
-			//				.then((data) => {
-			//					setStore({ contactlist: data });
-			//				})
-			//		}))
-			//},
-
 		},
-
 		
-
-			
-	}
+	};
 };
 
 

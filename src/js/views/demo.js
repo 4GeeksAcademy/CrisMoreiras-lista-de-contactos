@@ -34,7 +34,8 @@ export const Demo = () => {
 							>
 							{ contactlist.full_name }
 							{ contactlist.email }
-							<button onClick={()=>actions.deleteContact(index)}>Delete Contact</button>
+							{ contactlist.id }
+							<button onClick={()=>actions.deleteContact(contactlist.id)}>Delete Contact</button>
 						</li>
 					);
 				})}	
