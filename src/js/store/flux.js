@@ -13,23 +13,24 @@ const getState = ({ getStore, getActions, setStore }) => {
 				fetch ("https://playground.4geeks.com/apis/fake/contact/agenda/Agenda Cris 02")
 					.then((response) => response.json())
 					.then((data) => setStore ({contactlist: data}))	
-				},
-			
+			},
 
-			//addContact: (newContact) {
-			//	const requestOptions = {
-			//		method: 'POST',
-			//		headers: { 'Content-Type': 'application/json' },
-			//		body: JSON.stringify({
-			//			"full_name": newContact.full_name,
-			//			"email": newContact.email,
-			//			"agenda_slug": "Agenda Cris 02",
-			//			"address":newContact.address,
-			//			"phone":newContact.phone,
-			//		})
-			//	};
-			//	fetch('https://playground.4geeks.com/apis/fake/contact/', requestOptions)
-			//},
+			
+			addNewContact: (newContact) => {
+				const requestOptions = {
+					method: 'POST',
+					headers: { 'Content-Type': 'application/json' },
+					body: JSON.stringify({
+						"full_name": newContact.full_name,
+						"email": newContact.email,
+						"agenda_slug": "Agenda Cris 02",
+						"address":newContact.address,
+						"phone":newContact.phone,
+					})
+				};
+				fetch('https://playground.4geeks.com/apis/fake/contact/', requestOptions)
+			},
+
 
 			deleteContact: (indexToDelete) => {
 				const store = getStore();

@@ -44,6 +44,10 @@ export const Demo = () => {
 			<Link to="/">
 				<button className="btn btn-primary">Back home</button>
 			</Link>
+			<br></br>
+			<Link to="/formaddcontact">
+				<button className="btn btn-primary">Add New Contact</button>
+			</Link>
 			
 		</div>
 
