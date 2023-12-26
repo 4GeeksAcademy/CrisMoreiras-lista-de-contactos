@@ -18,22 +18,28 @@ export const Demo = () => {
 
 	
 	return (
-		<div className="container">
+		<div className="container_list" >
 			<ul className="list-group">
 				{store.contactlist.map((contactlist, index) => {
 					return (
 						<li
 							key={index}
-							className="list-group-item d-flex justify-content-between"
+							className="list-group-item d-flex"
 							>
-							{ contactlist.full_name }
-							<br/>
-							{ contactlist.addres }
-							<br/>
-							{ contactlist.phone }
-							<br/>
-							{ contactlist.email }
-							<button onClick={()=>actions.deleteContact(contactlist.id)}>Delete Contact</button>
+							<div>
+								<img src="https://picsum.photos/90" class="img-thumbnail" alt="..."/>
+							</div>
+							<div>
+								<div className = "contact_data">	
+								<h4>{ contactlist.full_name }</h4>
+								<p>{ contactlist.addres }</p>
+								<p>{ contactlist.phone }</p>
+								<p>{ contactlist.email }</p>
+								</div>
+							</div>
+							<div className="buttons">
+								<button onClick={()=>actions.deleteContact(contactlist.id)}>Delete Contact</button>
+							</div>
 						</li>
 					);
 				})}	
@@ -47,9 +53,7 @@ export const Demo = () => {
 				<button className="btn btn-primary">Add New Contact</button>
 			</Link>
 			<br/>
-			<Link to="/contactlist">
-				<button className="btn btn-primary">Contact</button>
-			</Link>
+		
 			
 		</div>
 		
