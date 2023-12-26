@@ -5,6 +5,7 @@ import { Context } from "../store/appContext";
 
 import "../../styles/demo.css";
 
+
 export const Demo = () => {
 	
 	const { store, actions } = useContext(Context);
@@ -26,8 +27,12 @@ export const Demo = () => {
 							className="list-group-item d-flex justify-content-between"
 							>
 							{ contactlist.full_name }
+							<br/>
+							{ contactlist.addres }
+							<br/>
+							{ contactlist.phone }
+							<br/>
 							{ contactlist.email }
-							{ contactlist.id }
 							<button onClick={()=>actions.deleteContact(contactlist.id)}>Delete Contact</button>
 						</li>
 					);
@@ -51,3 +56,4 @@ export const Demo = () => {
 	);	
 
 };
+

@@ -52,7 +52,7 @@ export const FormAddContact = () => {
 
 		<div className="mb-3">
   			<label for="formGroupExampleInput2" className="form-label">Email</label>
-  			<input type="text" className="form-control" id="formGroupExampleInput2" placeholder="Enter Email"></input>
+  			<input type="text" className="form-control" onChange={inputEmail} value={mail} placeholder="Enter Email"></input>
 		</div>
 
 		<div className="col-12 mt-3">
