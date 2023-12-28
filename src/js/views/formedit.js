@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
 import { Context } from "../store/appContext";
+
 import "../../styles/demo.css";
 
 export const FormEdit = () => {
@@ -27,14 +28,15 @@ export const FormEdit = () => {
 		setAddress(eAddress.target.value)	
 	};
 
-	const saveChange = () =>{
+	const saveChange = (id) =>{
 		actions.editContact({
 			full_name: name,
 			email: mail, 
 			phone: phone,
 			address: address,
 			
-	});
+		});
+
 		setName("");
 		setMail("");
 		setPhone("");
@@ -67,7 +69,7 @@ export const FormEdit = () => {
 		</div>
 
 		<div className="col-12 mt-3">
-            <button className="save_button btn btn-success" style={{width:"20%"}} onClick={saveNewContact}>Save Change</button>
+            <button className="save_button btn btn-success" style={{width:"30%"}} onClick={saveChange}>Save Change</button>
         </div>
 
 		<div className="col-12 mt-3">

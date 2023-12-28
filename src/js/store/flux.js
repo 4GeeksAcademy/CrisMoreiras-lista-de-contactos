@@ -31,8 +31,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 				fetch('https://playground.4geeks.com/apis/fake/contact/', requestOptions)
 			},
 
-			editContact: (editContact) => {
-				const requestOptions = {
+			editContact: (editContact, id) => {
+				const editOptions = {
 					method: 'PUT',
 					headers: { 'Content-Type': 'application/json' },
 					body: JSON.stringify({
@@ -43,7 +43,9 @@ const getState = ({ getStore, getActions, setStore }) => {
 						"phone":editContact.phone,
 					})
 				};
-				fetch('https://playground.4geeks.com/apis/fake/contact/', requestOptions)
+				fetch('https://playground.4geeks.com/apis/fake/contact/${id}', editOptions)
+				.then(response => response.json())
+			.then(console.log(`https://playground.4geeks.com/apis/fake/contact/${id}`));
 			},
 
 

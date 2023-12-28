@@ -7,6 +7,7 @@ import { Demo } from "./views/demo";
 import { Single } from "./views/single";
 
 import { FormAddContact } from "./views/formaddcontact";
+import { FormEdit } from "./views/formedit";
 
 import injectContext from "./store/appContext";
 
@@ -29,8 +30,10 @@ const Layout = () => {
 					<Routes>
 						<Route path="/" element={<Home />} />
 						<Route path="/demo" element={<Demo />} />
+
+						<Route path="/formedit" element={<FormEdit />} />
 						<Route path="/formaddcontact" element={<FormAddContact />} />
-						
+		
 						<Route path="/single/:theid" element={<Single />} />
 						<Route path="*" element={<h1>Not found!</h1>} />
 					</Routes>
