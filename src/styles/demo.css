@@ -1,18 +1,23 @@
-.container_list{
+.container{
     width: 600px;
     height: 100px;
     margin:auto;
 }
 
+.container_list{
+    display:inline-block;
+}
+
 .contact_data{
+    width: 310px;
     text-align: left;
     padding-left: 20px;
+    padding-right: 20px;
 }
 
 p {
     margin-bottom:0px;
 }
 
-.buttons{
-    justify-content: end;
-}
+
+

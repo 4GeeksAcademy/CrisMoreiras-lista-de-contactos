@@ -31,6 +31,21 @@ const getState = ({ getStore, getActions, setStore }) => {
 				fetch('https://playground.4geeks.com/apis/fake/contact/', requestOptions)
 			},
 
+			editContact: (editContact) => {
+				const requestOptions = {
+					method: 'PUT',
+					headers: { 'Content-Type': 'application/json' },
+					body: JSON.stringify({
+						"full_name": editContact.full_name,
+						"email": editContact.email,
+						"agenda_slug": "Agenda Cris 02",
+						"address":editContact.address,
+						"phone":editContact.phone,
+					})
+				};
+				fetch('https://playground.4geeks.com/apis/fake/contact/', requestOptions)
+			},
+
 
 			deleteContact: (indexToDelete) => {
 				const store = getStore();

@@ -18,10 +18,11 @@ export const Demo = () => {
 
 	
 	return (
-		<div className="container_list" >
+		<div className="container" >
 			<ul className="list-group">
 				{store.contactlist.map((contactlist, index) => {
 					return (
+						<div className="container_list">
 						<li
 							key={index}
 							className="list-group-item d-flex"
@@ -29,35 +30,33 @@ export const Demo = () => {
 							<div>
 								<img src="https://picsum.photos/90" class="img-thumbnail" alt="..."/>
 							</div>
-							<div>
-								<div className = "contact_data">	
+							<div className = "contact_data">	
 								<h4>{ contactlist.full_name }</h4>
-								<p>{ contactlist.addres }</p>
+								<p>{ contactlist.address }</p>
 								<p>{ contactlist.phone }</p>
 								<p>{ contactlist.email }</p>
-								</div>
 							</div>
-							<div className="buttons">
-								<button onClick={()=>actions.deleteContact(contactlist.id)}>Delete Contact</button>
+							
+							<div className="buttons_position">
+								<Link to="/formedit">
+								<button type="button" class="btn btn-success mx-1" onClick={()=>actions.editContact(contactlist.id)}>Edit</button>
+								</Link>
+								<button type="button" class="btn btn-danger" onClick={()=>actions.deleteContact(contactlist.id)}>Delete</button>
 							</div>
 						</li>
+						</div>
 					);
 				})}	
 			</ul>
-			<br />
-			<Link to="/">
-				<button className="btn btn-primary">Back home</button>
-			</Link>
-			<br/>
+			<br/>				
 			<Link to="/formaddcontact">
 				<button className="btn btn-primary">Add New Contact</button>
 			</Link>
 			<br/>
-		
-			
-		</div>
-		
+			<Link to="/">
+				<button className="btn btn-primary">Back home</button>
+			</Link>
+		</div>	
 	);	
-
 };
 
