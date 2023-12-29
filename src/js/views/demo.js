@@ -19,6 +19,12 @@ export const Demo = () => {
 	
 	return (
 		<div className="container" >
+			<center><h2>My Contact List</h2></center>
+
+			<Link to="/formaddcontact">
+				<button className="btn btn-primary my-4">Add New Contact</button>
+			</Link>
+
 			<ul className="list-group">
 				{store.contactlist.map((contactlist, index) => {
 					return (
@@ -39,9 +45,9 @@ export const Demo = () => {
 							
 							<div className="buttons_position">
 								<Link to="/formedit">
-								<button type="button" class="btn btn-success mx-1" onClick={()=>actions.editContact(contactlist.id)}>Edit</button>
+								<button type="button" class="btn btn-success mx-3 btn-sm" onClick={()=>actions.editContact(contactlist.id)}>Edit</button>
 								</Link>
-								<button type="button" class="btn btn-danger" onClick={()=>actions.deleteContact(contactlist.id)}>Delete</button>
+								<button type="button" class="btn btn-danger btn-sm" onClick={()=>actions.deleteContact(contactlist.id)}>Delete</button>
 							</div>
 						</li>
 						</div>
@@ -49,9 +55,7 @@ export const Demo = () => {
 				})}	
 			</ul>
 			<br/>				
-			<Link to="/formaddcontact">
-				<button className="btn btn-primary">Add New Contact</button>
-			</Link>
+			
 			<br/>
 			<Link to="/">
 				<button className="btn btn-primary">Back home</button>

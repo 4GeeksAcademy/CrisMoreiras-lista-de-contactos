@@ -47,7 +47,7 @@ export const FormEdit = () => {
 	return (
         <>
 		<div className="container">
-			<center><h2>Modify Contact</h2></center>
+			<center><h2>Edit Contact</h2></center>
         <div className="mb-3">
   			<label for="formGroupExampleInput" className="form-label">Full Name</label>
   			<input type="text" className="form-control" onChange={inputFullName} value={name} placeholder="Enter Full Name"></input>
@@ -69,12 +69,12 @@ export const FormEdit = () => {
 		</div>
 
 		<div className="col-12 mt-3">
-            <button className="save_button btn btn-success" style={{width:"30%"}} onClick={saveChange}>Save Change</button>
+            <button className="save_button btn btn-success" style={{width:"100%"}} onClick={saveChange}>Save Changes</button>
         </div>
 
 		<div className="col-12 mt-3">
 			<Link to="/demo">
-                <button className="return_button btn btn-primary">Return to Contacs</button>
+                <button className="return_button btn btn-primary">Back to Contacs</button>
             </Link>
         </div>
         </div>

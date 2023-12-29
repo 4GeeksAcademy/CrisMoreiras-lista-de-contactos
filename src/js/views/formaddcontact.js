@@ -45,7 +45,7 @@ export const FormAddContact = () => {
 	return (
         <>
 		<div className="container">
-			<center><h2>Create New Contact</h2></center>
+			<center><h2>Add New Contact</h2></center>
         <div className="mb-3">
   			<label for="formGroupExampleInput" className="form-label">Full Name</label>
   			<input type="text" className="form-control" onChange={inputFullName} value={name} placeholder="Enter Full Name"></input>
@@ -67,12 +67,12 @@ export const FormAddContact = () => {
 		</div>
 
 		<div className="col-12 mt-3">
-            <button className="save_button btn btn-success" style={{width:"20%"}} onClick={saveNewContact}>Save</button>
+            <button className="save_button btn btn-success" style={{width:"100%"}} onClick={saveNewContact}>Save</button>
         </div>
 
 		<div className="col-12 mt-3">
 			<Link to="/demo">
-                <button className="return_button btn btn-primary">Return to Contacs</button>
+                <button className="return_button btn btn-primary">Back to Contacs</button>
             </Link>
         </div>
         </div>
