@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
 import { Context } from "../store/appContext";
-
+import { useParams } from "react-router-dom";
 import "../../styles/demo.css";
 
 export const FormEdit = () => {
@@ -11,6 +11,7 @@ export const FormEdit = () => {
 	const [mail, setMail] = useState("");
 	const [phone, setPhone] = useState("");
 	const [address, setAddress] = useState("");
+	const { theid } = useParams();
 
     const inputFullName = (eName) =>{
 		setName(eName.target.value)	
@@ -28,6 +29,11 @@ export const FormEdit = () => {
 		setAddress(eAddress.target.value)	
 	};
 
+	const GetId = () =>{
+		theid
+	}
+
+
 	const saveChange = (id) =>{
 		actions.editContact({
 			full_name: name,
@@ -35,7 +41,7 @@ export const FormEdit = () => {
 			phone: phone,
 			address: address,
 			
-		});
+		}, theid );
 
 		setName("");
 		setMail("");

@@ -44,7 +44,7 @@ export const Demo = () => {
 							</div>
 							
 							<div className="buttons_position">
-								<Link to="/formedit">
+								<Link to={"/formedit/${contactlist.id}"} key={contactlist}>
 								<button type="button" class="btn btn-success mx-3 btn-sm" onClick={()=>actions.editContact(contactlist.id)}>Edit</button>
 								</Link>
 								<button type="button" class="btn btn-danger btn-sm" onClick={()=>actions.deleteContact(contactlist.id)}>Delete</button>
