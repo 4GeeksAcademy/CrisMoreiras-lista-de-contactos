@@ -29,9 +29,7 @@ export const FormEdit = () => {
 		setAddress(eAddress.target.value)	
 	};
 
-	const GetId = () =>{
-		theid
-	}
+	
 
 
 	const saveChange = (id) =>{

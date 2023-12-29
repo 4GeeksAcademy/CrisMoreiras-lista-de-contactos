@@ -10,13 +10,6 @@ export const Demo = () => {
 	
 	const { store, actions } = useContext(Context);
 
-
-	function eliminar (indexToDelete){
-		console.log ("eliminado" + indexToDelete)
-		console.log(store.contactlist.filter ((item, index) => index!= indexToDelete))
-	}
-
-	
 	return (
 		<div className="container" >
 			<center><h2>My Contact List</h2></center>
