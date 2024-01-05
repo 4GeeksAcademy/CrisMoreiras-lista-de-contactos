@@ -1,4 +1,4 @@
-//const apiUrl = ["https://playground.4geeks.com/apis/fake/contact/agenda/Agenda Cris 02"]
+
 const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
