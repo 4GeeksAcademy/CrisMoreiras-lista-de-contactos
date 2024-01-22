@@ -28,7 +28,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 						"phone":newContact.phone,
 					})
 				};
-				fetch('https://playground.4geeks.com/apis/fake/contact/agenda/Agenda Cris 02', requestOptions)
+				fetch('https://playground.4geeks.com/apis/fake/contact/', requestOptions)
 			},
 
 			editContact: (editContact, id) => {
