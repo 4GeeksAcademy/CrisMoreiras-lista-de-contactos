@@ -7,11 +7,19 @@ import "../../styles/demo.css";
 export const FormEdit = () => {
 
 	const { store, actions } = useContext(Context);
+	const { theid } = useParams();
+
 	const [name, setName] = useState("");
 	const [mail, setMail] = useState("");
 	const [phone, setPhone] = useState("");
 	const [address, setAddress] = useState("");
-	const { theid } = useParams();
+	
+	useEffect(() => {
+        setName(store.contact.full_name || "");
+        setMail(store.contact.email || "");
+        setPhone(store.contact.phone || "");
+        setAddress(store.contact.address || "");
+    }, [store.contact]);
 
     const inputFullName = (eName) =>{
 		setName(eName.target.value)	
@@ -29,25 +37,30 @@ export const FormEdit = () => {
 		setAddress(eAddress.target.value)	
 	};
 
-	
+	const saveChange = () => {
+        // Acción específica del componente para guardar cambios
+        const editedContact = {
+            full_name: name,
+            email: mail,
+            phone: phone,
+            address: address,
+        };
 
+		console.log("Edited Contact:", editedContact);
+    	console.log("ID:", theid);
 
-	const saveChange = (id) =>{
-		actions.editContact({
-			full_name: name,
-			email: mail, 
-			phone: phone,
-			address: address,
-			
-		}, theid );
+        // Llamada a la acción editContact del contexto
+        actions.editContact(editedContact, theid);
 
-		setName("");
-		setMail("");
-		setPhone("");
-		setAddress("");
-	}
+        // Limpiar los campos después de guardar cambios
+        setName("");
+        setMail("");
+        setPhone("");
+        setAddress("");
+    };
 
-	
+	const [contact, setContact] = useState (store.contact)
+
 	return (
         <>
 		<div className="container">

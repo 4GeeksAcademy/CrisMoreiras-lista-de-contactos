@@ -5,6 +5,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 	
 			contactlist: [],
 
+			contact: {},
+
 		},
 
 		actions: {
@@ -31,7 +33,13 @@ const getState = ({ getStore, getActions, setStore }) => {
 				fetch('https://playground.4geeks.com/apis/fake/contact/', requestOptions)
 			},
 
+			seeContact: (contact) => {
+				console.log(contact);
+				setStore({ contact: contact });
+			  },
+
 			editContact: (editContact, id) => {
+				console.log(id)
 				const editOptions = {
 					method: 'PUT',
 					headers: { 'Content-Type': 'application/json' },
@@ -43,11 +51,16 @@ const getState = ({ getStore, getActions, setStore }) => {
 						"phone":editContact.phone,
 					})
 				};
-				fetch('https://playground.4geeks.com/apis/fake/contact/${id}', editOptions)
+				fetch(`https://playground.4geeks.com/apis/fake/contact/${id}`, editOptions)
 				.then(response => response.json())
-			.then(console.log(`https://playground.4geeks.com/apis/fake/contact/${id}`));
-			},
-
+				.then(data => {
+					console.log("Edit Response:", data);
+					//console.log(`Edited contact with id ${id}`);
+					// Actualiza la lista de contactos después de la edición
+					getActions().loadSomeData();
+				})
+				.catch(error => console.error("Error editing contact:", error));
+		},
 
 			deleteContact: (indexToDelete) => {
 				const store = getStore();
